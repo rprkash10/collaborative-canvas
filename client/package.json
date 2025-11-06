@@ -1,0 +1,17 @@
+{
+  "name": "collaborative-canvas-client",
+  "version": "1.0.0",
+  "description": "Client-side code for collaborative canvas",
+  "main": "main.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["canvas", "collaborative"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
+

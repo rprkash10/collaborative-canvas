@@ -1,0 +1,19 @@
+{
+  "name": "collaborative-canvas",
+  "version": "1.0.0",
+  "description": "Multi-user collaborative drawing canvas application",
+  "scripts": {
+    "postinstall": "npm run install:all && npm run build",
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:server && npm run build:client",
+    "start": "cd server && npm start",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev"
+  },
+  "keywords": ["canvas", "collaborative", "websocket", "drawing"],
+  "author": "",
+  "license": "MIT"
+}
+

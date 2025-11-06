@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Real-Time Digital Canvas</h1>
+            <div class="header-controls">
+                <div class="user-info">
+                    <span id="user-name">Username</span>
+                    <input type="text" id="name-input" placeholder="Enter your name" maxlength="20">
+                </div>
+                <div class="online-users">
+                    <span class="label">Online:</span>
+                    <span id="user-count">0</span>
+                </div>
+                <div class="performance-metrics">
+                    <span class="metric">
+                        <span class="label">FPS:</span>
+                        <span id="fps-counter">60</span>
+                    </span>
+                    <span class="metric">
+                        <span class="label">Latency:</span>
+                        <span id="latency-display">--</span>ms
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="tool-group">
+                <button id="brush-btn" class="tool-btn active" title="Brush">
+                    ✏️
+                </button>
+                <button id="eraser-btn" class="tool-btn" title="Eraser">
+                    🧹
+                </button>
+                <button id="rectangle-btn" class="tool-btn" title="Rectangle">
+                    ▭
+                </button>
+                <button id="circle-btn" class="tool-btn" title="Circle">
+                    ○
+                </button>
+                <button id="text-btn" class="tool-btn" title="Text">
+                    A
+                </button>
+                <button id="image-btn" class="tool-btn" title="Image">
+                    🖼️
+                </button>
+                <input type="file" id="image-input" accept="image/*" style="display: none;">
+                <button id="clear-btn" class="tool-btn danger" title="Clear Canvas">
+                    🗑️
+                </button>
+            </div>
+
+            <div class="tool-group">
+                <label for="color-picker" class="color-label">Color:</label>
+                <input type="color" id="color-picker" value="#000000">
+            </div>
+
+            <div class="tool-group">
+                <label for="stroke-width">Width:</label>
+                <input type="range" id="stroke-width" min="1" max="50" value="5">
+                <span id="width-value">5</span>
+            </div>
+
+            <div class="tool-group">
+                <button id="undo-btn" class="tool-btn" title="Undo">
+                    ↶ Undo
+                </button>
+                <button id="redo-btn" class="tool-btn" title="Redo" disabled>
+                    ↷ Redo
+                </button>
+            </div>
+
+            <div class="tool-group">
+                <label for="room-select">Room:</label>
+                <input type="text" id="room-input" placeholder="Room ID" value="default">
+                <button id="join-room-btn" class="tool-btn">Join</button>
+            </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="canvas-container">
+            <canvas id="main-canvas"></canvas>
+            <canvas id="cursor-canvas"></canvas>
+            <div id="status" class="status"></div>
+        </div>
+
+        <!-- Users List -->
+        <aside class="users-sidebar">
+            <h3>Active Users</h3>
+            <ul id="users-list"></ul>
+        </aside>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+
